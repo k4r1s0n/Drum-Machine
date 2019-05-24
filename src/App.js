@@ -6,7 +6,7 @@ const data = [
   { id: 'Bass Drum', letter: 'Q', src: 'http://www.footdrumplus.ca/uploads/3/4/8/6/34866267/s2-55.wav' },
   { id: 'Snare Drum', letter: 'W', src: 'http://cd.textfiles.com/maxsounds/WAV/EFEITOS/SD0050.WAV' },
   { id: 'Pot Drum', letter: 'E', src: 'http://dight310.byu.edu/media/audio/FreeLoops.com/5/5/Pot%20Drum.wav-20799-Free-Loops.com.mp3' },
-  { id: 'Synth Hit', letter: 'A', src: 'http://www.pd.exxoshost.co.uk/MISC_UNKNOWN/ATARI_HQ_CD/Sounds/Wav/converted/tr24.wav' },
+  { id: 'Synth Hit', letter: 'A', src: 'http://dight310.byu.edu/media/audio/FreeLoops.com/2/2/Disco%20Hit.wav-20736-Free-Loops.com.mp3' },
   { id: 'Synth Bass', letter: 'S', src: 'http://dight310.byu.edu/media/audio/FreeLoops.com/5/5/Misc%20Bass%20Hit%206-2619-Free-Loops.com.mp3' },
   { id: 'Synth Bass Hit', letter: 'D', src: 'http://dight310.byu.edu/media/audio/FreeLoops.com/1/1/Bass%20Rhodes.wav-20889-Free-Loops.com.mp3' },
   { id: 'Electric Guitar', letter: 'Z', src: 'http://amath.colorado.edu/pub/matlab/music/wav/electric_guitar.wav' },
@@ -71,18 +71,22 @@ class App extends Component {
   
   render(){
     return(
-    <div id='drum-machine'>
+    <div id='drum-machine' className='container text-center'>
+      <h1 id='title'>Drum Machine</h1>
       <div id='display'>{this.state.display}</div>
-      <div id='drum-pads'>{data.map(event => (
-        <DrumPad
-          key={event.id}
-          id={event.id}
-          letter={event.letter}
-          src={event.src}
-          handleDisplay={this.handleDisplay}
-        />
-        ))}
+      <div id="drum-pads-wrap">
+        <div id='drum-pads' className="mx-auto">{data.map(event => (
+            <DrumPad
+              key={event.id}
+              id={event.id}
+              letter={event.letter}
+              src={event.src}
+              handleDisplay={this.handleDisplay}
+            />
+          ))}
+        </div>
       </div>
+      
     </div>
     )
   }
